@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - FancyStore</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- masterhead -->
+    <div class='masthead'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-xs-4'>
+                    <div id='topsearch'>
+                        <form id="search_mini_form" action="https://www.mydress.com/catalogsearch/result/" method="get" data-ajax="false">
+                            <div class="form-search search_box">
+                                <!--<label for="search" class="ui-hidden-accessible">搜尋</label>-->
+                                <input class='form-control' id="search" type="text" name="q" placeholder="搜尋" />
+                                <a onclick=' if( $( "search").value != "搜尋" ){ search_mini_form.submit();  } ' id='search-icon'><span class="search-icon glyphicon glyphicon-search"></span></a>
+                                <div id="search_autocomplete" class="search-autocomplete"></div>
+                                <script type="text/javascript">
+                                    //<![CDATA[
+                                    var searchForm = new Varien.searchForm('search_mini_form', 'search', '搜尋');
+//    searchForm.initAutocomplete('//www.mydress.com/catalogsearch/ajax/suggest/', 'search_autocomplete');
+//]]>
+                                </script>
+                            </div>
+                        </form>
+                    </div>
+                    <!--
+                    <div id='hotkey' class='mt-xs text-note small'>
+                                            </div>
+                    -->
+                </div>
+                <div id='logo' class='col-xs-4 text-center'>
+                    <a class="logo thumbnail" href="//www.mydress.com/"><img src='FancyImage/MasterShopImg.jpg' alt='' /></a>
+                </div>
+                <div class='col-xs-4 masthead-right-icon text-center'>
+                    <!--ewpagecache:page_template_links_begin:de408-->
+                    <div class='login-icon pull-right'>
+                        <a class='normal' href='/customer/account/login/'>
+                            <div class='normal-line-height'>
+                                <span class="glyphicon glyphicon-log-in">
+                            </div> <div class='mt-xs'>
+                                <strong>登入</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class='join-icon pull-right'>
+                        <a class='normal' href='/customer/account/create/'>
+                            <div class='normal-line-height'>
+                                <span class="glyphicon glyphicon-user">
+                            </div> <div class='mt-xs'>
+                                <strong>會員登記</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class='clearfix'></div>
+                    <!--ewpagecache:page_template_links_end-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- masterhead end -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
